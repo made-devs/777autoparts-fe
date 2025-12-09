@@ -1,26 +1,101 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* --- 1. BRAND COLORS --- */
+  /* Lo bisa panggil ini pake class: bg-voltage, text-voltage, border-voltage */
+  --color-voltage: #fff10a;
+  --color-charcoal: #0a0a0a;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* --- 2. CUSTOM FONTS (Opsional kalau mau setup disini) --- */
+  /* --font-display: "Monument Extended", sans-serif; */
+  /* --font-body: "Inter", sans-serif; */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* --- 3. CUSTOM ANIMATIONS --- */
+  /* Format: nama-class: nama-keyframes duration easing iteration */
+
+  /* Efek Kilatan Cahaya (Hero Part) */
+  --animate-sheen: sheen 4s ease-in-out infinite;
+
+  /* Efek Laser Scanner (Promo Card) */
+  --animate-scan: scan 3s linear infinite;
+
+  /* Gear Putar Lambat (Biar berasa berat/metal) */
+  --animate-spin-slow: spin 20s linear infinite;
+  --animate-spin-reverse: spin-reverse 15s linear infinite;
+
+  /* --- 4. KEYFRAMES DEFINITIONS --- */
+  @keyframes sheen {
+    0%,
+    100% {
+      transform: translateX(-100%) skewX(-12deg);
+    }
+    50% {
+      transform: translateX(100%) skewX(-12deg);
+    }
+  }
+
+  @keyframes scan {
+    0% {
+      top: 0%;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      top: 100%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes spin-reverse {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
   }
 }
 
+/* --- STANDARD CSS RESET & UTILITIES --- */
+:root {
+  background-color: #0a0a0a; /* Fallback charcoal */
+  color: #ffffff;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-charcoal);
+  overflow-x: hidden; /* Mencegah horizontal scroll karena animasi masuk dari samping */
+}
+
+/* Scrollbar Custom (Industrial Look) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-voltage); /* Jadi kuning pas dihover */
+}
+
+/* Utilities tambahan kalau perlu */
+@layer utilities {
+  .text-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    color: transparent;
+  }
+
+  .text-outline-voltage {
+    -webkit-text-stroke: 2px var(--color-voltage);
+    color: transparent;
+  }
 }
