@@ -89,7 +89,7 @@ export default function HeroLayered() {
       className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-neutral-950 border-b border-neutral-800"
     >
       {/* --- ATMOSPHERE (Background) --- */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20 pointer-events-none z-0"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] bg-size-[4rem_4rem] mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20 pointer-events-none z-0"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FFF10A] rounded-full blur-[200px] opacity-10 pointer-events-none z-0"></div>
 
       {/* --- LAYER 1: BACK PARTS (z-10) --- */}
@@ -101,7 +101,7 @@ export default function HeroLayered() {
         {/* Gear 1 (Kiri Atas - Jauh) */}
         <div className="absolute top-[15%] left-[10%] w-32 h-32 opacity-40 blur-[2px]">
           <Image
-            src="/home/gear1.webp"
+            src="/Home/gear1.webp"
             fill
             alt="gear"
             className="object-contain animate-[spin_30s_linear_infinite]"
@@ -111,7 +111,7 @@ export default function HeroLayered() {
         {/* Piston 2 (Kanan Atas - Jauh) */}
         <div className="absolute top-[20%] right-[15%] w-40 h-40 opacity-30 rotate-12 blur-[1px]">
           <Image
-            src="/home/piston2.webp"
+            src="/Home/piston2.webp"
             fill
             alt="piston"
             className="object-contain"
@@ -121,7 +121,7 @@ export default function HeroLayered() {
         {/* Belt (Tengah Bawah - Samar) */}
         <div className="absolute bottom-[10%] left-[40%] w-80 h-80 opacity-40 blur-[2px] rotate-90">
           <Image
-            src="/home/belt.webp"
+            src="/Home/belt.webp"
             fill
             alt="belt"
             className="object-contain"
@@ -197,7 +197,7 @@ export default function HeroLayered() {
         {/* Posisinya sengaja agak keluar layar biar gak nutupin tombol CTA */}
         <div className="absolute -bottom-[10%] -right-[5%] w-[350px] h-[350px] md:w-[600px] md:h-[600px] drop-shadow-2xl">
           <Image
-            src="/home/mesin.webp"
+            src="/Home/mesin.webp"
             fill
             alt="Engine Block"
             className="object-contain"
@@ -208,7 +208,7 @@ export default function HeroLayered() {
         {/* Piston 1 (Kiri Tengah - Floating dekat teks "Precision") */}
         <div className="absolute top-[35%] -left-[5%] md:left-[5%] w-48 h-48 md:w-64 md:h-64 drop-shadow-xl rotate-12">
           <Image
-            src="/home/piston1.webp"
+            src="/Home/piston1.webp"
             fill
             alt="Piston"
             className="object-contain"
@@ -218,7 +218,7 @@ export default function HeroLayered() {
         {/* Gear 2 (Kecil - Dekat Judul Atas) */}
         <div className="absolute top-[15%] right-[25%] w-20 h-20 md:w-28 md:h-28 animate-[spin_10s_linear_infinite_reverse] drop-shadow-lg opacity-80">
           <Image
-            src="/home/gear2.webp"
+            src="/Home/gear2.webp"
             fill
             alt="Small Gear"
             className="object-contain"
