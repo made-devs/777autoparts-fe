@@ -1,7 +1,7 @@
-"use client";
-import { useEffect, useRef } from "react";
-import Image from "next/image";
-import gsap from "gsap";
+'use client';
+import { useEffect, useRef } from 'react';
+import Image from 'next/image';
+import gsap from 'gsap';
 
 export default function HeroLayered() {
   const containerRef = useRef(null);
@@ -18,7 +18,7 @@ export default function HeroLayered() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
       // 1. SETUP AWAL
       // Sembunyikan elemen teks dulu biar bisa di-reveal
@@ -38,13 +38,13 @@ export default function HeroLayered() {
           frontPartsRef.current.children,
           { y: 100, opacity: 0 },
           { y: 0, opacity: 1, duration: 1.5, stagger: 0.1 },
-          "<"
+          '<'
         )
 
         // Teks masuk setelahnya
-        .to(badgeRef.current, { y: 0, opacity: 1, duration: 0.8 }, "-=1")
-        .to(titleRef.current, { y: 0, opacity: 1, duration: 1 }, "-=0.6")
-        .to(btnRef.current, { y: 0, opacity: 1, duration: 0.8 }, "-=0.8");
+        .to(badgeRef.current, { y: 0, opacity: 1, duration: 0.8 }, '-=1')
+        .to(titleRef.current, { y: 0, opacity: 1, duration: 1 }, '-=0.6')
+        .to(btnRef.current, { y: 0, opacity: 1, duration: 0.8 }, '-=0.8');
 
       // 3. MOUSE MOVE PARALLAX
       const onMouseMove = (e) => {
@@ -57,7 +57,7 @@ export default function HeroLayered() {
           x: -xPos * 25,
           y: -yPos * 25,
           duration: 1,
-          ease: "power1.out",
+          ease: 'power1.out',
         });
 
         // Layer Teks (Gerak Sedikit Banget - sebagai jangkar)
@@ -72,12 +72,12 @@ export default function HeroLayered() {
           x: xPos * 40,
           y: yPos * 40,
           duration: 0.8,
-          ease: "power1.out",
+          ease: 'power1.out',
         });
       };
 
-      window.addEventListener("mousemove", onMouseMove);
-      return () => window.removeEventListener("mousemove", onMouseMove);
+      window.addEventListener('mousemove', onMouseMove);
+      return () => window.removeEventListener('mousemove', onMouseMove);
     }, containerRef);
 
     return () => ctx.revert();
@@ -152,12 +152,16 @@ export default function HeroLayered() {
           className="text-6xl md:text-8xl lg:text-9xl font-black italic uppercase tracking-tighter leading-[0.9] text-white mb-8 drop-shadow-2xl"
         >
           Precision <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-500 relative">
+          <span className="text-transparent bg-clip-text bg-linear-to-b from-white to-neutral-500 relative">
             Performance
-            {/* Dekorasi garis tipis di belakang teks biar manis */}
-            <span className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[1px] bg-[#FFF10A]/20"></span>
+            <span className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-px bg-[#FFF10A]/20"></span>
           </span>
         </h1>
+        {/* Tambahan subtext hero */}
+        <p className="text-neutral-400 text-lg md:text-2xl font-mono mb-10">
+          Upgrade your drive with{' '}
+          <span className="text-voltage font-bold">777 Auto Parts</span>
+        </p>
 
         {/* CTA Button (Tactical Shape) */}
         <div ref={btnRef} className="mt-8 relative inline-block">

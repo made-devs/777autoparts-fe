@@ -1,29 +1,29 @@
-"use client";
-import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
-import gsap from "gsap";
+'use client';
+import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
+import gsap from 'gsap';
 
 // Dummy Data Promo (Ganti dengan aset 4:5 lo nanti)
 const promos = [
   {
     id: 1,
-    title: "Flash Sale Turbo",
-    img: "https://images.unsplash.com/photo-1600706432502-78b97599df72?auto=format&fit=crop&q=80",
+    title: 'Flash Sale Turbo',
+    img: 'https://images.unsplash.com/photo-1600706432502-78b97599df72?auto=format&fit=crop&q=80',
   },
   {
     id: 2,
-    title: "Brake Kits Bundle",
-    img: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80",
+    title: 'Brake Kits Bundle',
+    img: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80',
   },
   {
     id: 3,
-    title: "Oil Change Special",
-    img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&q=80",
+    title: 'Oil Change Special',
+    img: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&q=80',
   },
   {
     id: 4,
-    title: "Interior Detailing",
-    img: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&q=80",
+    title: 'Interior Detailing',
+    img: 'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&q=80',
   },
 ];
 
@@ -43,7 +43,7 @@ export default function Promo() {
       gsap.to(sliderRef.current, {
         x: xValue,
         duration: 0.6,
-        ease: "power3.out",
+        ease: 'power3.out',
       });
     }, containerRef);
     return () => ctx.revert();
@@ -64,7 +64,7 @@ export default function Promo() {
       className="py-20 bg-neutral-900 border-y border-neutral-800 overflow-hidden relative"
     >
       {/* Background Decor (Stripes) */}
-      <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_25%,rgba(255,255,255,0.02)_50%,transparent_50%,transparent_75%,rgba(255,255,255,0.02)_75%,rgba(255,255,255,0.02)_100%)] bg-[size:20px_20px] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_25%,rgba(255,255,255,0.02)_50%,transparent_50%,transparent_75%,rgba(255,255,255,0.02)_75%,rgba(255,255,255,0.02)_100%)] bg-size-[20px_20px] pointer-events-none"></div>
 
       <div className="container mx-auto px-6 flex flex-col md:flex-row gap-12 items-center">
         {/* --- LEFT SIDE: TEXT INFO --- */}
@@ -112,11 +112,11 @@ export default function Promo() {
                 <div
                   key={promo.id}
                   onClick={() => setActiveIndex(index)} // Klik card buat jadi active
-                  className={`relative w-[280px] md:w-[300px] aspect-[4/5] flex-shrink-0 transition-all duration-500 cursor-pointer group
+                  className={`relative w-[280px] md:w-[300px] aspect-4/5 shrink-0 transition-all duration-500 cursor-pointer group
                                 ${
                                   isActive
-                                    ? "scale-100 opacity-100 z-10"
-                                    : "scale-95 opacity-50 grayscale hover:grayscale-0"
+                                    ? 'scale-100 opacity-100 z-10'
+                                    : 'scale-95 opacity-50 grayscale hover:grayscale-0'
                                 }`}
                 >
                   {/* BINGKAI INDUSTRIAL (HUD) */}
@@ -124,8 +124,8 @@ export default function Promo() {
                     className={`absolute inset-0 border-2 transition-colors duration-300 z-20 pointer-events-none
                                 ${
                                   isActive
-                                    ? "border-[#FFF10A]"
-                                    : "border-neutral-700"
+                                    ? 'border-[#FFF10A]'
+                                    : 'border-neutral-700'
                                 }`}
                   >
                     {/* Sudut Siku */}
@@ -147,7 +147,7 @@ export default function Promo() {
                     {/* OVERLAY: SCAN LINE EFFECT (Hanya muncul kalau active) */}
                     {isActive && (
                       <div className="absolute inset-0 z-30 pointer-events-none">
-                        <div className="w-full h-[2px] bg-voltage shadow-[0_0_15px_var(--color-voltage)] animate-scan"></div>
+                        <div className="w-full h-0.5 bg-voltage shadow-[0_0_15px_var(--color-voltage)] animate-scan"></div>
                         <div className="absolute top-4 right-4 bg-[#FFF10A] text-black text-[10px] font-bold px-2 py-1">
                           ACTIVE
                         </div>

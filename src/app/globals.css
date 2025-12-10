@@ -1,42 +1,25 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  /* --- 1. BRAND COLORS --- */
-  /* Lo bisa panggil ini pake class: bg-voltage, text-voltage, border-voltage */
-  --color-voltage: #fff10a;
-  --color-charcoal: #0a0a0a;
+  /* --- COLOR PALETTE --- */
+  --color-voltage: #fff10a; /* Primary Accent: Neon Yellow */
+  --color-charcoal: #0a0a0a; /* Primary Background: Rich Black */
+  --color-surface: #111111; /* Secondary Background */
+  --color-dim: #9ca3af; /* Muted Text */
 
-  /* --- 2. CUSTOM FONTS (Opsional kalau mau setup disini) --- */
-  /* --font-display: "Monument Extended", sans-serif; */
-  /* --font-body: "Inter", sans-serif; */
+  /* --- TYPOGRAPHY --- */
+  --font-display: var(--font-oswald), ui-sans-serif, system-ui;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui;
+  --font-tech: var(--font-mono), ui-monospace, monospace;
 
-  /* --- 3. CUSTOM ANIMATIONS --- */
-  /* Format: nama-class: nama-keyframes duration easing iteration */
-
-  /* Efek Kilatan Cahaya (Hero Part) */
-  --animate-sheen: sheen 4s ease-in-out infinite;
-
-  /* Efek Laser Scanner (Promo Card) */
-  --animate-scan: scan 3s linear infinite;
-
-  /* Gear Putar Lambat (Biar berasa berat/metal) */
-  --animate-spin-slow: spin 20s linear infinite;
-  --animate-spin-reverse: spin-reverse 15s linear infinite;
-
-  /* --- 4. KEYFRAMES DEFINITIONS --- */
-  @keyframes sheen {
-    0%,
-    100% {
-      transform: translateX(-100%) skewX(-12deg);
-    }
-    50% {
-      transform: translateX(100%) skewX(-12deg);
-    }
-  }
+  /* --- ANIMATIONS --- */
+  --animate-scan: scan 4s linear infinite;
+  --animate-glitch: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both
+    infinite;
 
   @keyframes scan {
     0% {
-      top: 0%;
+      top: -10%;
       opacity: 0;
     }
     10% {
@@ -46,56 +29,62 @@
       opacity: 1;
     }
     100% {
-      top: 100%;
+      top: 110%;
       opacity: 0;
     }
   }
+}
 
-  @keyframes spin-reverse {
-    from {
-      transform: rotate(360deg);
-    }
-    to {
-      transform: rotate(0deg);
-    }
+/* --- UTILITIES --- */
+@layer utilities {
+  /* Clip Path untuk sudut terpotong (Chamfered) */
+  .clip-chamfer {
+    clip-path: polygon(
+      10px 0,
+      100% 0,
+      100% calc(100% - 10px),
+      calc(100% - 10px) 100%,
+      0 100%,
+      0 10px
+    );
+  }
+
+  /* Clip Path lebih agresif */
+  .clip-chamfer-lg {
+    clip-path: polygon(
+      20px 0,
+      100% 0,
+      100% calc(100% - 20px),
+      calc(100% - 20px) 100%,
+      0 100%,
+      0 20px
+    );
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-tech {
+    font-family: var(--font-tech);
   }
 }
 
-/* --- STANDARD CSS RESET & UTILITIES --- */
-:root {
-  background-color: #0a0a0a; /* Fallback charcoal */
+/* --- GLOBAL STYLES --- */
+body {
+  background-color: var(--color-charcoal);
   color: #ffffff;
 }
 
-body {
-  background-color: var(--color-charcoal);
-  overflow-x: hidden; /* Mencegah horizontal scroll karena animasi masuk dari samping */
-}
-
-/* Scrollbar Custom (Industrial Look) */
+/* Scrollbar Industrial */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #000;
 }
 ::-webkit-scrollbar-thumb {
   background: #333;
-  border-radius: 0px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-voltage); /* Jadi kuning pas dihover */
-}
-
-/* Utilities tambahan kalau perlu */
-@layer utilities {
-  .text-outline {
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
-    color: transparent;
-  }
-
-  .text-outline-voltage {
-    -webkit-text-stroke: 2px var(--color-voltage);
-    color: transparent;
-  }
+  background: var(--color-voltage);
 }

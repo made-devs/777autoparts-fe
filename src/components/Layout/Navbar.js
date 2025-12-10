@@ -1,14 +1,17 @@
-"use client";
-import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
-import gsap from "gsap";
-import { usePathname } from "next/navigation";
+'use client';
+import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+import gsap from 'gsap';
+import { usePathname } from 'next/navigation';
 
+// UPDATE: Menu items sesuai request (Home, Catalog, Gallery, News, About us, Contact)
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Catalog", href: "/catalog" },
-  { name: "Garage", href: "/garage" },
-  { name: "About", href: "/about" },
+  { name: 'Home', href: '/' },
+  { name: 'Catalog', href: '/catalog' },
+  { name: 'Gallery', href: '/gallery' },
+  { name: 'News', href: '/news' },
+  { name: 'About us', href: '/about' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 export default function Navbar() {
@@ -23,23 +26,23 @@ export default function Navbar() {
       if (isOpen) {
         // OPEN: Reveal dengan efek lingkaran membesar (Industrial Shutter)
         gsap.to(menuRef.current, {
-          clipPath: "circle(150% at 100% 0%)",
+          clipPath: 'circle(150% at 100% 0%)',
           duration: 1,
-          ease: "power2.inOut",
+          ease: 'power2.inOut',
         });
 
         // Links muncul berurutan
         gsap.fromTo(
-          ".mobile-link",
+          '.mobile-link',
           { y: 50, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, delay: 0.3 }
         );
       } else {
         // CLOSE: Tutup balik ke pojok kanan atas
         gsap.to(menuRef.current, {
-          clipPath: "circle(0% at 100% 0%)",
+          clipPath: 'circle(0% at 100% 0%)',
           duration: 0.8,
-          ease: "power3.inOut",
+          ease: 'power3.inOut',
         });
       }
     });
@@ -59,7 +62,7 @@ export default function Navbar() {
             7
           </div>
           <span className="font-black italic text-xl tracking-tighter text-white group-hover:text-[#FFF10A] transition-colors">
-            777{" "}
+            777{' '}
             <span className="text-neutral-500 font-normal not-italic text-sm tracking-widest ml-1">
               PARTS
             </span>
@@ -73,7 +76,7 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               className={`relative text-sm font-bold uppercase tracking-wider hover:text-[#FFF10A] transition-colors ${
-                pathname === link.href ? "text-[#FFF10A]" : "text-neutral-400"
+                pathname === link.href ? 'text-[#FFF10A]' : 'text-neutral-400'
               }`}
             >
               {link.name}
@@ -133,18 +136,18 @@ export default function Navbar() {
           >
             {/* Animated Lines */}
             <span
-              className={`w-8 h-[2px] bg-white transition-all duration-300 ${
-                isOpen ? "rotate-45 translate-y-[7px] bg-[#FFF10A]" : ""
+              className={`w-8 h-0.5 bg-white transition-all duration-300 ${
+                isOpen ? 'rotate-45 translate-y-[7px] bg-[#FFF10A]' : ''
               }`}
             ></span>
             <span
-              className={`w-6 h-[2px] bg-white transition-all duration-300 ${
-                isOpen ? "opacity-0" : ""
+              className={`w-6 h-0.5 bg-white transition-all duration-300 ${
+                isOpen ? 'opacity-0' : ''
               }`}
             ></span>
             <span
-              className={`w-8 h-[2px] bg-white transition-all duration-300 ${
-                isOpen ? "-rotate-45 -translate-y-[7px] bg-[#FFF10A]" : ""
+              className={`w-8 h-0.5 bg-white transition-all duration-300 ${
+                isOpen ? '-rotate-45 -translate-y-[7px] bg-[#FFF10A]' : ''
               }`}
             ></span>
           </button>
@@ -174,7 +177,7 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="mobile-link text-5xl font-black uppercase italic text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-500 hover:to-[#FFF10A] transition-all"
+              className="mobile-link text-5xl font-black uppercase italic text-transparent bg-clip-text bg-linear-to-b from-white to-neutral-500 hover:to-[#FFF10A] transition-all"
             >
               {link.name}
             </Link>

@@ -1,9 +1,9 @@
-"use client";
-import { useEffect, useRef } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+'use client';
+import { useEffect, useRef } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,38 +11,38 @@ gsap.registerPlugin(ScrollTrigger);
 const categories = [
   {
     id: 1,
-    title: "Engine Bay",
-    subtitle: "Turbo, Pistons, Filters",
-    img: "/Home/enginebay.webp",
-    span: "md:col-span-2 md:row-span-2",
+    title: 'Engine Bay',
+    subtitle: 'Turbo, Pistons, Filters',
+    img: '/Home/enginebay.webp',
+    span: 'md:col-span-2 md:row-span-2',
   },
   {
     id: 2,
-    title: "Suspension",
-    subtitle: "Coilovers, Springs",
-    img: "/Home/suspension.webp",
-    span: "md:col-span-1 md:row-span-1",
+    title: 'Suspension',
+    subtitle: 'Coilovers, Springs',
+    img: '/Home/suspension.webp',
+    span: 'md:col-span-1 md:row-span-1',
   },
   {
     id: 3,
-    title: "Braking",
-    subtitle: "Calipers, Discs, Pads",
-    img: "/Home/braking.webp",
-    span: "md:col-span-1 md:row-span-2",
+    title: 'Braking',
+    subtitle: 'Calipers, Discs, Pads',
+    img: '/Home/braking.webp',
+    span: 'md:col-span-1 md:row-span-2',
   },
   {
     id: 4,
-    title: "Exhaust",
-    subtitle: "Mufflers, Headers",
-    img: "/Home/exhaust.webp",
-    span: "md:col-span-1 md:row-span-1",
+    title: 'Exhaust',
+    subtitle: 'Mufflers, Headers',
+    img: '/Home/exhaust.webp',
+    span: 'md:col-span-1 md:row-span-1',
   },
   {
     id: 5,
-    title: "Wheels & Tires",
-    subtitle: "Rims, Bolts, Spacers",
-    img: "/Home/wheel.webp",
-    span: "md:col-span-2 md:row-span-1",
+    title: 'Wheels & Tires',
+    subtitle: 'Rims, Bolts, Spacers',
+    img: '/Home/wheel.webp',
+    span: 'md:col-span-2 md:row-span-1',
   },
 ];
 
@@ -53,17 +53,17 @@ export default function Categories() {
     const ctx = gsap.context(() => {
       // Animasi Grid Items Muncul
       gsap.fromTo(
-        ".cat-item",
+        '.cat-item',
         { y: 100, opacity: 0 },
         {
           y: 0,
           opacity: 1,
           duration: 0.8,
           stagger: 0.1,
-          ease: "power2.out",
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 80%", // Mulai animasi saat elemen masuk 80% viewport
+            start: 'top 80%', // Mulai animasi saat elemen masuk 80% viewport
           },
         }
       );
@@ -107,7 +107,7 @@ export default function Categories() {
         {categories.map((cat) => (
           <Link
             key={cat.id}
-            href={`/catalog/${cat.title.toLowerCase().replace(" ", "-")}`}
+            href={`/catalog/${cat.title.toLowerCase().replace(' ', '-')}`}
             className={`cat-item group relative overflow-hidden bg-neutral-900 border border-neutral-800 hover:border-[#FFF10A] transition-colors duration-300 ${cat.span}`}
           >
             {/* Background Image */}
@@ -119,7 +119,7 @@ export default function Categories() {
                 className="object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 ease-in-out"
               />
               {/* Dark Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-500"></div>
             </div>
 
             {/* Content Text */}
